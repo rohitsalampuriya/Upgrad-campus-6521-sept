@@ -78,13 +78,14 @@ answer:
 
 Q.5
 
-Two variables, x and y, take input from the user, and both variables have an integer datatype.
+Two variables, x, and y, take input from the user, and both variables have an integer datatype.
 Take another variable rst whose datatype is boolean and write x is less than or equal to y in rst.
-Write a code if the value of rst will be true then print "x is less than or equal to y", if the value of x and y is less than 0 then print "Less than Zero values is an incorrect" and if the value of rst will be false then print "x is not less than or equal to y".
+Write a code if the value of rst will be true then print "x is less than or equal to y", if the value of x and y is less than 0 then print "Less than Zero values is incorrect" and if the value of rst will be false then print "x is not less than or equal to y".
 
 answer:
 import java.util.*;
-
+public class Main(){
+  public static void main(String args[]){
 int x,y;
 Scanner sc = new Scanner(System.in);
 x = sc.nextInt();
@@ -100,3 +101,126 @@ System.out.println("Less than Zero values is an incorrect value");
 else{
 System.out.println(x+" is not less than or equal to "+ y);
 }
+}
+}
+
+o/p:
+12
+13
+12 is less than or equal to y
+------------------------------------------------------------------------------
+
+Q.6
+
+Write a program to calculate the percentage of studentmarks out of 500 and print the result in percentage.
+
+answer:
+public class Calculator{
+    public static void main(String args[]){
+    int max_marks = 500;
+       double studentmarks = 400;
+        double percentage;
+         percentage =(studentmarks/max_marks)*100;
+       System.out.println("The overall percentage is " + percentage);
+      }    
+}
+
+o/p:
+The overall percentage is 80.0
+---------------------------------------------------------------------
+
+Q.7
+
+Write a program to calculate the area of rectangle.
+
+answer:
+public class rectangle{  
+    public static void main(String args[])  
+    {  
+    int width=10;  
+    int height=10;  
+    int area=width*height;  
+        System.out.println("Area of rectangle="+area);  
+     }  
+}  
+
+o/p:
+Area of rectangle=100
+------------------------------------------------------------
+
+Q.8 
+Write a program to calculate the total marks of student and stored that marks in array.
+
+answer:
+import java.util.*;
+public class Main {
+
+   public static void main(String[] args) {
+             Scanner sc = new Scanner(System.in);
+       int marks[] = new int[4];
+          double totalMarks=0.0;
+        for(int i = 0; i < 4; i++){
+            
+           marks[i] = sc.nextInt(); 
+           totalMarks = totalMarks + marks[i];
+        }
+      
+        System.out.println(totalMarks); 
+    }
+}
+
+o/p:
+4
+5
+7
+9
+25.0
+-----------------------------------------------------------------
+
+Q.9
+
+Write a program if a is greater than equal to b and a is less than c then it will print true and if the condition does not satisfy then print false.
+
+answer:
+public class Main(){
+  public static void main(String args[]){ 
+        int a = 8;
+        int b  = 13;
+         int c = 9;
+        boolean z = a>=b && a<c;
+       System.out.println(z);
+    }
+}
+
+o/p:
+false
+------------------------------------------------------------------
+
+Q.10
+Write a  program to find the value of a specified expression.
+1. (false && false) || (true && true)
+2. (false || false) && (true && true)
+
+answer:
+
+public class Main {
+	public static void main(String[] args) {
+		
+		boolean q1 = (false && false) || (true && true);
+		boolean q2 = (false || false) && (true && true);
+	
+		System.out.println("((false && false) || (true && true))= " + q1);
+		System.out.println("(false || false) && (true && true)= " + q2);
+	}
+}
+
+o/p:
+((false && false) || (true && true))= true
+(false || false) && (true && true)= false
+
+
+
+
+
+
+
