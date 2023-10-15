@@ -1,0 +1,174 @@
+Q.1 
+Write a program in Java to input 5 numbers from the user and find their sum and average.
+
+Answer:
+import java.util.Scanner;
+public class Conditional1 {
+  public static void main(String[] args)
+{       
+    int i,n=0,s=0;
+	double avg=0.0;
+	{
+        System.out.println("Input the 5 numbers : ");     
+	}
+		for (i=0;i<5;i++)
+		{
+		    Scanner in = new Scanner(System.in);
+		    n = in.nextInt();   
+  		s +=n;
+	}
+	avg=s/5;
+	System.out.println("The sum of 5 no is : " +s+"\nThe Average is : " +avg);
+}
+}
+
+O/P:
+Input the 5 numbers :                                                                                         
+1                                                                                                     
+2                                                                                                     
+3                                                                                                     
+4                                                                                                     
+5                                                                                                     
+The sum of 5 no is : 15                                                                                       
+The Average is : 3.0
+---------------------------------------------------------------------------------------------
+Q.2
+Write a program that prompts the user to input a positive integer. It should then print the multiplication table of that number. 
+
+Answer:
+import java.util.Scanner;
+
+public class Table1
+{
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int num;
+        
+        System.out.print("Enter any positive integer: ");
+        num = sc.nextInt();
+                
+        System.out.println("Multiplication Table of " + num);
+        
+        for(int i=1; i<=10; i++)
+        {
+            System.out.println(num +" x " + i + " = " + (num*i) );
+        }
+    }
+}
+
+O/P:
+Enter any positive integer: 5
+Multiplication Table of 5
+5 X 1 = 5
+5 X 2 = 10
+5 X 3 = 15
+5 X 4 = 20
+5 X 5 = 25
+5 X 6 = 30
+5 X 7 = 35
+5 X 8 = 40
+5 X 9 = 45
+5 X 10 = 50
+---------------------------------------------------------------------------
+Q.3
+Write a program to print Fibonacci series of n terms where n is input by user :
+0 1 1 2 3 5 8 13 24 ..... 
+
+Answer:
+import java.util.Scanner;
+
+public class FibonacciSeries
+{
+    public static void main(String[] args)
+    {
+        Scanner console = new Scanner(System.in);
+        
+        int number;  // To hold number of terms
+
+        int firstTerm = 0,
+            secondTerm = 1,
+            thirdTerm;
+ 
+        System.out.print("Enter number of terms of series : ");
+        number = console.nextInt();
+ 
+        System.out.print(firstTerm + " " + secondTerm + " ");
+ 
+        for(int i = 3; i <= number; i++)
+	{
+            thirdTerm = firstTerm + secondTerm;
+            System.out.print(thirdTerm + " ");
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+	}
+    }  
+}
+-------------------------------------------------------------------------------------------
+Q.4
+Predict the output of following Java program
+
+class Main { 
+   public static void main(String args[]) { 
+      try { 
+         throw 10; 
+      } 
+      catch(int e) { 
+         System.out.println("Got the  Exception " + e); 
+      } 
+  } 
+} 
+(A) Got the Exception 10
+(B) Got the Exception 0
+(C) Compiler Error
+
+Answer: (C)
+---------------------------------------------------------------------------
+Q.5
+What is the output of the following program?
+public class Test 
+{ 
+    private void m1() 
+    { 
+        m2(); 
+        System.out.printf("1"); 
+    } 
+    private void m2() 
+    { 
+        m3(); 
+        System.out.printf("2"); 
+    } 
+    private void m3() 
+    { 
+        System.out.printf("3"); 
+        try
+        { 
+            int sum = 4/0; 
+            System.out.printf("4"); 
+        } 
+        catch(ArithmeticException e) 
+        { 
+            System.out.printf("5"); 
+        } 
+          
+          
+        System.out.printf("7"); 
+    } 
+    public static void main(String[] args) 
+    { 
+        Test obj = new Test(); 
+        obj.m1(); 
+    } 
+} 
+
+a) 35721
+b) 354721
+c) 3521
+d) 35
+
+Answer:  a
+
+
+
+
+
