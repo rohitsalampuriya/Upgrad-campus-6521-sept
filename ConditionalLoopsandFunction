@@ -167,8 +167,142 @@ c) 3521
 d) 35
 
 Answer:  a
+---------------------------------------------------------------------------
+Q.6
+Write a program in java to print the number-increasing reverse Pyramid Pattern.
 
+Answer:
+import java.util.*; 
+  
+public class GeeksForGeeks { 
+  
+    public static void printPattern(int n) 
+    { 
+        int i, j;       
+        for (i = n; i >= 1; i--) {      
+            for (j = 1; j <= i; j++) { 
+                System.out.print(j + " "); 
+            } 
+            System.out.println(); 
+        } 
+    } 
+    public static void main(String args[]) 
+    { 
+        int n = 6; 
+        printPattern(n); 
+    } 
+}
 
+O/P:
+1 2 3 4 5 6 
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 
+1
+--------------------------------------------------------------------------------------------
+Q.7
+Write a program using break inside the innermost loop. But the loop breaks each time when j is equal to 2 and control goes to outer loop that starts from the next iteration.
 
+Answer:
 
+public class Demo{          
+    public static void main(String[] args) {  
+    	for(int i=1;i<=2;i++){  
+            for (int j = 0; j <=3; j++) {
+		if(j==2)
+		 break;
+		System.out.println(j);
+		}          
+        }  
+    }  
+}  
 
+O/P:
+0
+1
+0
+1
+-----------------------------------------------------------------------------------------
+Q.8
+Compute the sum of 5 positive numbers.
+
+Answer:
+
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Double number, sum = 0.0;
+    Scanner input = new Scanner(System.in);
+    for (int i = 1; i < 6; ++i) {
+      System.out.print("Enter number " + i + " : ");
+      number = input.nextDouble();
+      if (number <= 0.0) {
+        continue;
+      }
+      sum += number;
+    }
+    System.out.println("Sum = " + sum);
+    input.close();
+  }
+}
+
+O/P:
+Enter number 1: 2.2
+Enter number 2: 5.6
+Enter number 3: 0
+Enter number 4: -2.4
+Enter number 5: -3
+Sum = 7.8
+--------------------------------------------------------------------------------------------
+Q.9
+Program to find the sum of natural numbers from 1 to 1000.
+
+Answer:
+
+public class Main {
+  public static void main(String[] args) {
+      
+    int sum = 0;
+    int n = 1000;
+
+    for (int i = 1; i <= n; ++i) {
+      sum += i;    
+    }
+       
+    System.out.println("Sum = " + sum);
+  }
+}
+
+O/P: 
+ Sum = 500500
+--------------------------------------------------------------------------------------------
+Q.10
+Given a list of integers, sort all the values present in it in descending order using Stream functions?
+10,15,8,49,25,98,98,32,15.
+
+Answer:
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class SortDescending{
+  public static void main(String args[]) {
+          List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+
+           myList.stream()
+           myList.sorted(Collections.reverseOrder())
+           myList.forEach(System.out::println);
+  }
+}
+
+O/P:
+98
+98
+49
+32
+25
+15
+15
+10
+8
