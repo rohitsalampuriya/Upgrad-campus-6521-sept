@@ -1,4 +1,69 @@
 Q.1
+An abstract class can have constructors and static methods?
+Options:
+A. TRUE
+B. FALSE
+C. Abstract class can have constructors but can not have static methods.
+D. Abstract class can not have constructors but can have static methods.Answer:
+
+Answer:
+A
+Explanation: It can have constructors and static methods also.
+
+-------------------------------------------------------------------------------------------------
+Q.2
+What is the syntax of abstract class in java?
+Options:
+A. abstract A{}
+B. abstract class A
+C. abstract class A{}
+D. abstract class A[]
+
+Answer:
+C
+Explanation: The syntax of abstract class in java is abstract class A{}.
+
+-------------------------------------------------------------------------------------------------
+Q.3
+ A method which is declared as abstract and does not have implementation is known as an _____________?
+Options:
+A. Abstract Interface
+B. Abstract Thread
+C. Abstract List
+D. abstract Method
+Answer:
+ D
+Explanation: A method which is declared as abstract and does not have implementation is known as an abstract method.
+
+-------------------------------------------------------------------------------------------------
+Q.4
+Which of these packages contains abstract keyword?
+Options:
+A. java.lang
+B. java.util
+C. java.io
+D. java.system
+
+Answer:
+A
+Explanation: java.lang packages contains abstract keyword.
+
+-------------------------------------------------------------------------------------------------
+Q.5
+An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
+Options:
+A. TRUE
+B. FALSE
+C. Can be true or false
+D. can not say
+
+Answer:
+A
+Explanation: Yes, An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
+
+-------------------------------------------------------------------------------------------------
+
+Q.6
 Write a Java program to create an abstract class Animal with an abstract method called sound(). Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a specific sound for each animal.
 Answer:
 public class Main {
@@ -31,7 +96,7 @@ Output:
 Lion roars!
 Tiger growls!
 -------------------------------------------------------------------------------------------------
-Q.2
+Q.7
 Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter(). Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape.
 Answer:
 abstract class Shape {
@@ -103,7 +168,7 @@ Sides of the Traiangel are: 3.0,4.0,5.0
 Area of the Triangle: 6.0
 Perimeter of the Triangle: 12.0
 -------------------------------------------------------------------------------------------------
-Q.3
+Q.8
 Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). Create subclasses: SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals for each account type.
 Answer:
 abstract class BankAccount {
@@ -216,7 +281,7 @@ Withdrawal of $3000.0 successful. Current balance: $3000.0
 Try to withdraw: $6000.0
 Insufficient funds. Withdrawal failed.
 -------------------------------------------------------------------------------------------------
-Q.4
+Q.9
 Write a Java program to create an abstract class Animal with abstract methods eat() and sleep(). Create subclasses Lion, Tiger, and Deer that extend the Animal class and implement the eat() and sleep() methods differently based on their specific behavior.
 Answer:
 abstract class Animal {
@@ -290,7 +355,7 @@ Tiger sleeps in a hidden spot.
 Deer grazes on grass and leaves.
 Deer sleeps in open fields.
 -------------------------------------------------------------------------------------------------
-Q.5
+Q.10
 Write a Java program to create an abstract class Shape3D with abstract methods calculateVolume() and calculateSurfaceArea(). Create subclasses Sphere and Cube that extend the Shape3D class and implement the respective methods to calculate the volume and surface area of each shape.
 Answer:
 abstract class Shape3D {
