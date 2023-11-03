@@ -1,0 +1,201 @@
+Q.1
+ What is the output of the following program?
+class Test 
+{ 
+    void myMethod() 
+    { 
+        System.out.println("great"); 
+    } 
+} 
+public class Derived extends Test 
+{ 
+    void myMethod() 
+    { 
+        System.out.println("Great method"); 
+    } 
+      
+    public static void main(String[] args) 
+    { 
+        Derived object = new Test(); 
+        object.myMethod(); 
+    } 
+} 
+Options:
+a) Great method
+b) great
+c) Compilation error
+d) Runtime error
+
+Answer:c
+Explanation: A child class cannot be used as a reference to an object of super class.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.2
+Write a Java program to create a base class Shape with a method called calculateArea(). Create three subclasses: Circle, Rectangle, and Triangle. Override the calculateArea() method in each subclass to calculate and return the shape's area.
+Answer:
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(4);
+        System.out.println("Area of Circle: " + circle.calculateArea());
+
+        Rectangle rectangle = new Rectangle(12, 34);
+        System.out.println("\nArea of Rectangle: " + rectangle.calculateArea());
+
+        Triangle triangle = new Triangle(5, 9);
+        System.out.println("\nArea of Triangle: " + triangle.calculateArea());
+    }
+}
+public class Shape {
+    public double calculateArea() {
+        return 0; // Default implementation returns 0
+    }
+}
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius; // Calculate area of circle
+    }
+}
+public class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return width * height; // Calculate area of rectangle
+    }
+}
+public class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height; // Calculate area of triangle
+    }
+}
+Output:
+Area of Circle: 50.26548245743669
+
+Area of Rectangle: 408.0
+
+Area of Triangle: 22.5
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.3
+Write a Java program to create a class Vehicle with a method called speedUp(). Create two subclasses Car and Bicycle. Override the speedUp() method in each subclass to increase the vehicle's speed differently.
+Answer:
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        Motorcycle motorcycle = new Motorcycle();
+        System.out.println("Car initial speed: " + car.getSpeed());
+        System.out.println("Motorcycle initial speed: " + motorcycle.getSpeed());
+        car.speedUp();
+        motorcycle.speedUp();
+        System.out.println("\nCar speed after speeding up: " + car.getSpeed());
+        System.out.println("Motorcycle speed after speeding up: " + motorcycle.getSpeed());
+    }
+}
+class Vehicle {
+    private int speed;
+
+    public void speedUp() {
+        speed += 10;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    public void speedUp() {
+        super.speedUp();
+        System.out.println("\nCar speed increased by 22 units.");
+    }
+} 
+
+class Motorcycle extends Vehicle {
+    @Override
+    public void speedUp() {
+        super.speedUp();
+        System.out.println("Motorcycle speed increased by 12 units");
+    }
+}
+Output:
+Car initial speed: 0
+Motorcycle initial speed: 0
+
+Car speed increased by 22 units.
+Motorcycle speed increased by 12 units
+
+Car speed after speeding up: 10
+Motorcycle speed after speeding up: 10
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.4
+ Write a Java program to reverse elements in a array list
+Answer:
+import java.util.*;
+public class Reverse_ArrayList
+{
+	public static void main(String[] args)
+	{
+		List<String> list_col = new ArrayList<String>();
+		list_col.add("Black");
+		list_col.add("Orange");
+		list_col.add("Pink");
+		list_col.add("Blue");
+		list_col.add("White");
+		list_col.add("Yellow");	
+		list_col.add("Purple");
+		System.out.println("Before Reversing :" + list_col);  
+		Collections.reverse(list_col);
+		System.out.println("After Reversing :" + list_col); 
+	}
+}
+Output:
+Playing a sport...
+
+Playing football...
+Playing basketball...
+Playing rugby...
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.5
+ Write a Java Program to Insert the Specified Element at the Front of a LinkedList
+Answer:
+import java.util.LinkedList;
+public class InsertElement_Front
+{
+	public static void main(String[] args)
+	{
+		LinkedList<String> book_list = new LinkedList<String>();
+		book_list.add("Cpp");
+		book_list.add("Php");
+		book_list.add("Css");
+		book_list.add("Python");
+		book_list.add("MySql");
+		System.out.println("Given linked list : "+ book_list);
+		book_list.offerFirst("Java");
+		System.out.println("Final linked list : "+ book_list);  
+	}	
+}
+Output:
+Before Reversing :[Black, Orange, Pink, Blue, White, Yellow, Purple]
+After Reversing :[Purple, Yellow, White, Blue, Pink, Orange, Black]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
