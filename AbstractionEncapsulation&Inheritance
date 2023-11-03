@@ -311,7 +311,187 @@ Circle Perimeter: 43.982297150257104
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Inheritance:
 
+Q.1
+ Will this code compile successfully? If yes, what is the output? If no, identify the errors.
+package pack1;
+public class A 
+{
+   private int x = 50;	
+   protected int y = 100;
+    int z = 200;
+}
+package pack2;
+import pack1.A;
+public class B extends A {
 
+}
+import pack2.B;
+public class Test {
+public static void main(String[] args) 
+{
+   B b = new B();
+   System.out.println(b.x);
+
+   System.out.println(b.y);
+   System.out.println(b.z);
+  }
+}
+Answer:
+No, the code will not compile successfully because of two compile-time errors.
+Explanation:
+First error is in line System.out.println(b.x); because private members cannot be accessed in the subclass.
+Second error is in line System.out.println(b.y); because default members of superclass can be accessed in the subclass within the same package only.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Q.2
+Is the code going to compile successfully? In that case, what is the result?
+public class C1 { 
+   int x = 50;
+}
+public class C2 extends C1 {
+   int x = 40;
+}
+public class Check {
+public static void main(String[] args) 
+{
+   C2 c2 = new C2();
+   System.out.println(c2.x); 
+ 
+   C1 c1 = new C1();
+   System.out.println(c1.x);
+ 
+   C1 c3 = new C2();
+   System.out.println(c3.x);
+  }
+}
+Answer:
+Yes, the compilation of the code will succeed.
+Output:
+40
+50
+50
+---------------------------------------------------------------------------------------------------
+Q.3
+Write a Java program to create a class called Animal with a method named move(). Create a subclass called Cheetah that overrides the move() method to run.
+Answer:
+public class Animal {
+    public void move() {
+        System.out.println("Animal moves");
+    }
+}
+
+public class Cheetah extends Animal {
+    @Override
+    public void move() {
+        System.out.println("This cheetah is running!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.move();
+        Cheetah cheetah = new Cheetah();
+        cheetah.move();
+    }
+}
+Output:
+Animal moves
+This cheetah is running!
+---------------------------------------------------------------------------------------------------
+Q.4
+Using inheritance, one class can acquire the properties of others. Consider the following Animal class:
+class Animal{
+    void walk(){
+        System.out.println("I am walking");
+    }
+}
+This class has only one method, walk. Next, we want to create a Bird class that also has a fly method. We do this using extends keyword:
+class Bird extends Animal {
+    void fly() {
+        System.out.println("I am flying");
+    }
+}
+Finally, we can create a Bird object that can both fly and walk.
+public class Solution{
+   public static void main(String[] args){
+      Bird bird = new Bird();
+      bird.walk();
+      bird.fly();
+   }
+}
+The above code will print:
+I am walking
+I am flying
+This means that a Bird object has all the properties that an Animal object has, as well as some additional unique properties.
+The code above is provided for you in your editor. You must add a sing method to the Bird class, then modify the main method accordingly so that the code prints the following lines:
+I am walking
+I am flying
+I am singing
+
+Answer:
+class Animal{
+	void walk(){
+		System.out.println("I am walking");
+	}
+}
+
+class Bird extends Animal{
+	void fly(){
+		System.out.println("I am flying");
+	}
+    void sing(){
+        System.out.println("I am singing");
+    }
+}
+
+public class Solution{
+
+   public static void main(String args[]){
+
+	  Bird bird = new Bird();
+	  bird.walk();
+	  bird.fly();
+      bird.sing();
+	
+   }
+}
+Output:
+I am walking
+I am flying
+I am singing
+---------------------------------------------------------------------------------------------------
+Q.5
+Write the following code in your editor below:
+
+A class named Arithmetic with a method named add that takes  integers as parameters and returns an integer denoting their sum.
+A class named Adder that inherits from a superclass named Arithmetic.
+Your classes should not be be public.
+Answer:
+class Arithmetic{
+    int add(int a,int b){
+        return a + b;
+    }
+}
+class Adder extends Arithmetic{
+      
+}
+
+public class Solution{
+    public static void main(String []args){
+        // Create a new Adder object
+        Adder a = new Adder();
+        
+        // Print the name of the superclass on a new line
+        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());	
+        
+        // Print the result of 3 calls to Adder's `add(int,int)` method as 3 space-separated integers:
+        System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
+     }
+}
+Output:
+My superclass is: Arithmetic
+42 13 20
+---------------------------------------------------------------------------------------------------
 
 
 
