@@ -1,440 +1,136 @@
-Abstraction:
-
 Q.1
-An abstract class can have constructors and static methods?
-Options:
-A. TRUE
-B. FALSE
-C. Abstract class can have constructors but can not have static methods.
-D. Abstract class can not have constructors but can have static methods.Answer:
-
+Write a Multilevel program in java in which  their are three classes A, B and C. Where A is a parent class of B and C is the child class of B.
 Answer:
-A
-Explanation: It can have constructors and static methods also.
-
--------------------------------------------------------------------------------------------------
-Q.2
-What is the syntax of abstract class in java?
-Options:
-A. abstract A{}
-B. abstract class A
-C. abstract class A{}
-D. abstract class A[]
-
-Answer:
-C
-Explanation: The syntax of abstract class in java is abstract class A{}.
-
--------------------------------------------------------------------------------------------------
-Q.3
- A method which is declared as abstract and does not have implementation is known as an _____________?
-Options:
-A. Abstract Interface
-B. Abstract Thread
-C. Abstract List
-D. abstract Method
-Answer:
- D
-Explanation: A method which is declared as abstract and does not have implementation is known as an abstract method.
-
--------------------------------------------------------------------------------------------------
-Q.4
-Which of these packages contains abstract keyword?
-Options:
-A. java.lang
-B. java.util
-C. java.io
-D. java.system
-
-Answer:
-A
-Explanation: java.lang packages contains abstract keyword.
-
--------------------------------------------------------------------------------------------------
-Q.5
-An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
-Options:
-A. TRUE
-B. FALSE
-C. Can be true or false
-D. can not say
-
-Answer:
-A
-Explanation: Yes, An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
-
--------------------------------------------------------------------------------------------------
-Encapsulation:
-
-Q.1
-Write a Java program to create a class called Person with private instance variables name, age. and country. Provide public getter and setter methods to access and modify these variables.
-Answer:
-
-public class Main {
-  public static void main(String[] args) {
-    // Create an instance of Person
-    Person person = new Person();
-
-    // Set values using setter methods
-    person.setName("Arthfael Viktorija");
-    person.setAge(25);
-    person.setCountry("USA");
-
-    // Get values using getter methods
-    // Print the values
-    System.out.println("Name: " + person.getName());
-    System.out.println("Age: " + person.getAge());
-    System.out.println("Country: " + person.getCountry());
-  }
+class A{
+  public void methodA(){
+System.out.println("Base class method");
 }
-class Person {
-  private String name;
-  private int age;
-  private String country;
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public int getAge() {
-    return age;
-  }
-
-  public void setAge(int age) {
-    this.age = age;
-  }
-
-  public String getCountry() {
-    return country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
+}
+class B extends A{
+   public void methodB(){
+System.out.println("Child class of A") ;   
+}
+}
+class C extends B{
+    public void methodC(){
+System.out.println("Child class of B") ;   
+}
+}
+public class Main{
+  public static void main(String [] args){
+    B b = new B();
+   b.methodB();
+   b.methodA();
+}
 }
 Output:
-Name: Arthfael Viktorija
-Age: 25
-Country: USA
+Child class of A
+Base class method
+
 ---------------------------------------------------------------------------------------------------------------
 Q.2
-Write a Java program to create a class called BankAccount with private instance variables accountNumber and balance. Provide public getter and setter methods to access and modify these variables.
-Answer:
-
-public class Main {
-  public static void main(String[] args) {
-    // Create an instance of BankAccount
-    BankAccount account = new BankAccount();
-
-    // Set values using setter methods
-    account.setAccountNumber("SB-09876");
-    account.setBalance(2000.0);
-
-    // Get values using getter methods
-    // Print the values
-    System.out.println("Account Number: " + account.getAccountNumber());
-    System.out.println("Balance: " + account.getBalance());
-  }
-}
-
-class BankAccount {
-  private String accountNumber;
-  private double balance;
-
-  public String getAccountNumber() {
-    return accountNumber;
-  }
-  public void setAccountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
-  }
-  public double getBalance() {
-    return balance;
-  }
-  public void setBalance(double balance) {
-    this.balance = balance;
-  }
-}
-
-Output:
-Account Number: SB-09876
-Balance: 2000.0
----------------------------------------------------------------------------------------------------------------
-Q.3
-Write a Java program to create a class called Rectangle with private instance variables length and width. Provide public getter and setter methods to access and modify these variables.
+Write a code to create a class called Rhombus with private instance variables p and q. Provide public getter and setter methods to access and modify these variables.
 Answer:
 public class Main
 {
 	public static void main(String[] args) {
-		Rectangle r = new Rectangle();
-		r.setLength(2);
-		r.setWidth(3);
-		System.out.println(r.getLength());
-		System.out.println(r.getWidth());
-    System.out.println(r.rectangle());
+		Rhombus r = new Rhombus();
+		r.setP(2);
+		r.setQ(3);
+		System.out.println(r.getP());
+		System.out.println(r.getQ());
+    System.out.println(r.rhombus());
 	}
 }
-class Rectangle{
-    private double length;
-    private double width;
-    public double getLength(){
-        return length;
+class Rhombus{
+    private double p;
+    private double q;
+    public double getP(){
+        return p;
     }
-    public void setLength(double length){
-        this.length = length;
+    public void setP(double p){
+        this.p = p;
     }
-     public double getWidth(){
-        return width;
+     public double getQ(){
+        return q;
     }
-    public void setWidth(double width){
-        this.width = width;
+    public void setQ(double q){
+        this.q = q;
     }
-    public double rectangle(){
-        return length * width;
+    public double rhombus(){
+        return (p * q)/2;
     }
 }
 Output:
 2.0
 3.0
-6.0
+3.0
 ---------------------------------------------------------------------------------------------------------------
-Q.4
-Write a Java program to create a class called Employee with private instance variables employee_id, employee_name, and employee_salary. Provide public getter and setter methods to access and modify the id and name variables, but provide a getter method for the salary variable that returns a formatted string.
-Answer:
-
-public class Main {
-  public static void main(String[] args) {
-    // Create an instance of Employee
-    Employee employee = new Employee();
-
-    // Set values using setter methods
-    employee.setEmployeeId(15);
-    employee.setEmployeeName("Caelius Dathan");
-    employee.setEmployeeSalary(4900.0);
-
-    // Get values using getter methods
-    // Print the values
-    System.out.println("Employee Details:");
-    System.out.println("ID: " + employee.getEmployeeId());
-    System.out.println("Name: " + employee.getEmployeeName());
-    System.out.println("Salary: " + employee.getFormattedSalary());
-  }
-}
-
-class Employee {
-  private int employee_id;
-  private String employee_name;
-  private double employee_salary;
-
-  public int getEmployeeId() {
-    return employee_id;
-  }
-
-  public void setEmployeeId(int employeeId) {
-    this.employee_id = employeeId;
-  }
-
-  public String getEmployeeName() {
-    return employee_name;
-  }
-
-  public void setEmployeeName(String employeeName) {
-    this.employee_name = employeeName;
-  }
-
-  public double getEmployeeSalary() {
-    return employee_salary;
-  }
-
-  public void setEmployeeSalary(double employeeSalary) {
-    this.employee_salary = employeeSalary;
-  }
-
-  public String getFormattedSalary() {
-    return String.format("$%.2f", employee_salary);
-  }
-}
-
-Output:
-Employee Details:
-ID: 15
-Name: Caelius Dathan
-Salary: $4900.00
----------------------------------------------------------------------------------------------------------------
-Q.5
-Write a Java program to create a class called Circle with a private instance variable radius. Provide public getter and setter methods to access and modify the radius variable. However, provide two methods called calculateArea() and calculatePerimeter() that return the calculated area and perimeter based on the current radius value.
-Answer:
-
-public class Main {
-  public static void main(String[] args) {
-    // Create an instance of Circle
-    Circle circle = new Circle();
-
-    // Set the radius using the setter method
-    circle.setRadius(7.0);
-
-    // Get the radius using the getter method
-    System.out.println("Circle Radius: " + circle.getRadius());
-    System.out.println("Circle Area: " + circle.calculateArea());
-    System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
-  }
-}
-
-class Circle {
-  private double radius;
-
-  public double getRadius() {
-    return radius;
-  }
-
-  public void setRadius(double radius) {
-    this.radius = radius;
-  }
-
-  public double calculateArea() {
-    return Math.PI * radius * radius;
-  }
-
-  public double calculatePerimeter() {
-    return 2 * Math.PI * radius;
-  }
-}
-
-
-Output:
-Circle Radius: 7.0
-Circle Area: 153.93804002589985
-Circle Perimeter: 43.982297150257104
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Inheritance:
-
-Q.1
- Will this code compile successfully? If yes, what is the output? If no, identify the errors.
-package pack1;
-public class A 
-{
-   private int x = 50;	
-   protected int y = 100;
-    int z = 200;
-}
-package pack2;
-import pack1.A;
-public class B extends A {
-
-}
-import pack2.B;
-public class Test {
-public static void main(String[] args) 
-{
-   B b = new B();
-   System.out.println(b.x);
-
-   System.out.println(b.y);
-   System.out.println(b.z);
-  }
-}
-Answer:
-No, the code will not compile successfully because of two compile-time errors.
-Explanation:
-First error is in line System.out.println(b.x); because private members cannot be accessed in the subclass.
-Second error is in line System.out.println(b.y); because default members of superclass can be accessed in the subclass within the same package only.
-----------------------------------------------------------------------------------------------------------------------------------------------------
-Q.2
-Is the code going to compile successfully? In that case, what is the result?
-public class C1 { 
-   int x = 50;
-}
-public class C2 extends C1 {
-   int x = 40;
-}
-public class Check {
-public static void main(String[] args) 
-{
-   C2 c2 = new C2();
-   System.out.println(c2.x); 
- 
-   C1 c1 = new C1();
-   System.out.println(c1.x);
- 
-   C1 c3 = new C2();
-   System.out.println(c3.x);
-  }
-}
-Answer:
-Yes, the compilation of the code will succeed.
-Output:
-40
-50
-50
----------------------------------------------------------------------------------------------------
 Q.3
-Write a Java program to create a class called Animal with a method named move(). Create a subclass called Cheetah that overrides the move() method to run.
+Create a class  Manager with private instance variables id, name, and salary. Provide public getter and setter methods to access and modify the id and name variables.
 Answer:
-public class Animal {
-    public void move() {
-        System.out.println("Animal moves");
-    }
-}
-
-public class Cheetah extends Animal {
-    @Override
-    public void move() {
-        System.out.println("This cheetah is running!");
-    }
-}
 
 public class Main {
-    public static void main(String[] args) {
-        Animal animal = new Animal();
-        animal.move();
-        Cheetah cheetah = new Cheetah();
-        cheetah.move();
-    }
+  public static void main(String[] args) {
+
+    Manager manager = new Manager();
+
+    manager.setId(5);
+    manager.setName("Rohit S");
+    manager.setSalary(40000.0);
+    System.out.println("Manager Details:");
+    System.out.println("ID: " + manager.getId());
+    System.out.println("Name: " + manager.getName());
+    System.out.println("Salary: " + manager.getSalary());
+  }
 }
+
+class Manager {
+  private int id;
+  private String name;
+  private double salary;
+
+  public int getId() {
+    return id;
+  }
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public double getSalary() {
+    return salary;
+  }
+  public void setSalary(double salary) {
+    this.salary = salary;
+  }
+
+  public String getSalary() {
+    return String.format("$%.2f", salary);
+  }
+}
+
 Output:
-Animal moves
-This cheetah is running!
+Manager Details:
+ID: 5
+Name: Rohit S
+Salary: $40000.00
 ---------------------------------------------------------------------------------------------------
 Q.4
-Using inheritance, one class can acquire the properties of others. Consider the following Animal class:
-class Animal{
-    void walk(){
-        System.out.println("I am walking");
-    }
-}
-This class has only one method, walk. Next, we want to create a Bird class that also has a fly method. We do this using extends keyword:
-class Bird extends Animal {
-    void fly() {
-        System.out.println("I am flying");
-    }
-}
-Finally, we can create a Bird object that can both fly and walk.
-public class Solution{
-   public static void main(String[] args){
-      Bird bird = new Bird();
-      bird.walk();
-      bird.fly();
-   }
-}
-The above code will print:
-I am walking
-I am flying
-This means that a Bird object has all the properties that an Animal object has, as well as some additional unique properties.
-The code above is provided for you in your editor. You must add a sing method to the Bird class, then modify the main method accordingly so that the code prints the following lines:
-I am walking
-I am flying
-I am singing
-
+Consider the Parent class is an Animal class and subclass is Bird.
+Write a methods in the classes and display the output which defines inheritance.
 Answer:
 class Animal{
 	void walk(){
 		System.out.println("I am walking");
 	}
 }
-
 class Bird extends Animal{
 	void fly(){
 		System.out.println("I am flying");
@@ -443,16 +139,12 @@ class Bird extends Animal{
         System.out.println("I am singing");
     }
 }
-
 public class Solution{
-
    public static void main(String args[]){
-
 	  Bird bird = new Bird();
 	  bird.walk();
 	  bird.fly();
-      bird.sing();
-	
+      bird.sing();	
    }
 }
 Output:
@@ -461,36 +153,29 @@ I am flying
 I am singing
 ---------------------------------------------------------------------------------------------------
 Q.5
-Write the following code in your editor below:
-
-A class named Arithmetic with a method named add that takes  integers as parameters and returns an integer denoting their sum.
-A class named Adder that inherits from a superclass named Arithmetic.
-Your classes should not be be public.
+Write a code in java,
+A class named Arith with a method named add that takes parameters, which is type is an integer and returns an integer denoting their sum.A class named Add that inherits from a Parent class named Arith.
+Classes should not be be public.
 Answer:
-class Arithmetic{
+class Arith{
     int add(int a,int b){
         return a + b;
     }
 }
-class Adder extends Arithmetic{
+class Add extends Arith{
       
 }
 
-public class Solution{
+public class Main{
     public static void main(String []args){
-        // Create a new Adder object
-        Adder a = new Adder();
-        
-        // Print the name of the superclass on a new line
-        System.out.println("My superclass is: " + a.getClass().getSuperclass().getName());	
-        
-        // Print the result of 3 calls to Adder's `add(int,int)` method as 3 space-separated integers:
-        System.out.print(a.add(10,32) + " " + a.add(10,3) + " " + a.add(10,10) + "\n");
+        Add a = new Add();
+        System.out.println("My Parent class is: Arithmetic");	
+        System.out.print(a.add(5,32) + " " + a.add(10,20) + " " + a.add(4,10) + "\n");
      }
 }
 Output:
-My superclass is: Arithmetic
-42 13 20
+My Parent class is: Arithmetic
+37 30 14
 ---------------------------------------------------------------------------------------------------
 
 
