@@ -1,1 +1,55 @@
+Q1.
+Write the Java code for the Linear Search. It will take user input for the array and the search element.
+Answer:
 
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of elements:");
+        int N = sc.nextInt();
+        System.out.println("Enter elements:");
+
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter search element:");
+        int search = sc.nextInt();
+
+        int index = searchFind(N, arr, search);
+        System.out.println(Arrays.toString(arr));
+
+        if (index == -1) {
+            System.out.println("Element not found");
+        } else {
+            System.out.println("The element is present at index " + index);
+        }
+    }
+
+    public static int searchFind(int N, int[] arr, int search) {
+        for (int i = 0; i < N; i++) {
+            if (arr[i] == search) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+Output:
+Enter number of elements:
+5
+Enter elements:
+1
+2
+3
+4
+99
+Enter search element:
+99
+[1, 2, 3, 4, 99]
+The element is present at index 4
+---------------------------------------------------------------------------------------------------------------------
+Q2.
