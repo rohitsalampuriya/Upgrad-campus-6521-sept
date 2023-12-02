@@ -110,3 +110,37 @@ public class Main{
 
 Output:
 Number of reverse pairs: 3
+------------------------------------------------------------------------------------------------------------------------
+Q3.
+Write the code in Java shows an implementation of selection sort and then uses it to sort {7,5, 3, 4, 1, 2,6}:
+Answer:
+public class SelectionSort {
+    public static void selectionSort(int[] array) {
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {7, 5, 3, 4, 1, 2, 6};
+        selectionSort(array);
+        System.out.println("Sorted array: ");
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+Output:
+Sorted array: 1 2 3 4 5 6 7
+------------------------------------------------------------------------------------------------------------------------------
+Q4.
