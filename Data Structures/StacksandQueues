@@ -1,0 +1,222 @@
+Q1.Write a code, stack that returns the minimum element in constant time.
+
+Answer:
+import java.util.Stack;
+class MinStack
+{
+    private Stack<Integer> s1;       
+    private Stack<Integer> s2;     
+
+    public MinStack()
+    {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+
+    public void push(int val)
+    {
+        s1.push(val);       
+        if (s2.isEmpty()) {
+            s2.push(val);
+        }
+        else {
+            if (s2.peek() >= val) {
+                s2.push(val);
+            }
+        }
+    }
+    public int pop()
+    {
+        if (isEmpty())
+        {
+            System.out.println(" underflow!!");
+           return -1;
+        }
+        int top = s1.pop();
+
+        if (top == s2.peek()) {
+            aux.pop();
+        }
+        return top;
+    }
+    public int top() {
+        return s.peek();
+    }
+    public int size() {
+        return s.size();
+    }
+    public boolean isEmpty() {
+        return s.isEmpty();
+    }
+    public int getMin()
+    {
+        if (s2.isEmpty())
+        {
+            System.out.println("Stack underflow!!");
+            return -1;
+        }
+        return s2.peek();
+    }
+}
+ 
+class Main
+{
+    public static void main (String[] args)
+    {
+        MinStack s = new MinStack();
+        s.push(6);
+        System.out.println(s.getMin());    
+        s.push(7);
+        System.out.println(s.getMin());    
+        
+        s.push(10);
+        System.out.println(s.getMin());   
+        System.out.println(s.pop());    
+        System.out.println(s.getMin());   
+       
+}
+}
+Output:
+6
+6
+6
+10
+6
+-------------------------------------------------------------------------------------------
+Q2.Write a code in java to evaluate a postfix expression.
+
+Answer:
+import java.util.Stack;
+class Main
+{
+    public static int evalPostfix(String exp)
+    {
+        if (exp == null || exp.length() == 0) {
+            return -1;
+        }
+        Stack<Integer> stack = new Stack<>();
+        for (char c: exp.toCharArray())
+        {
+            if (Character.isDigit(c)) {
+                stack.push(c - '0');
+            }
+            else {
+                int x = stack.pop();
+                int y = stack.pop();
+                if (c == '+') {
+                    stack.push(y + x);
+                }
+                else if (c == '-') {
+                    stack.push(y - x);
+                }
+                else if (c == '*') {
+                    stack.push(y * x);
+                }
+                else if (c == '/') {
+                    stack.push(y / x);
+                }
+            }
+        }
+        return stack.pop();
+    }
+ 
+    public static void main(String[] args)
+    {
+        String exp = "138*+";
+        System.out.println(evalPostfix(exp));
+    }
+}
+
+Output:
+25
+-----------------------------------------------------------------------------------------------------
+Q3.Write a code in java to reverse a string using a stack data structure.
+
+Answer:
+import java.util.Stack;
+class Main
+{
+    public static String reverse(String str)
+    {
+        Stack<Character> stack = new Stack<>();
+        char[] chars = str.toCharArray();
+        for (char c: chars) {
+            stack.push(c);
+        }
+        for (int i = 0; i < str.length(); i++) {
+            chars[i] = stack.pop();
+        }
+        return new String(chars);
+    }
+    public static void main (String[] args)
+    {
+        String str = "Reverse me";
+        str = reverse(str);
+        System.out.println(str);
+    }
+}
+
+Output:
+em esreveR
+----------------------------------------------------------------------------------------------------
+Q4.Write a code in java to compare the two queues.
+
+Answer:
+import java.util.*;
+public class CompareTwoQueues
+{
+	public static void main(String[] args)
+	{
+		Queue <String> queue1 = new LinkedList <>();
+		Queue <String> queue2 = new LinkedList <>();
+		queue1.add("Pink");
+		queue1.add("Black");
+		queue1.add("Blue");
+
+		queue2.add("Pink");
+		queue2.add("Black");
+		queue2.add("Blue");
+		queue2.add("White");
+
+		boolean isEqual = queue1.equals(queue2);
+		if (isEqual)
+		{
+			System.out.println("The Queues are Equal.");
+		}
+		else
+		{
+			System.out.println("The Queues are Not Equal.");
+		}
+ 
+	}
+}
+
+Output:
+The Queues are Not Equal.
+--------------------------------------------------------------------------------------
+Q5.Write a code in java to retrieve an element from the head of the queue without removing element.
+
+Answer:
+import java.util.*;
+
+public class Retrieve
+{
+	public static void main(String[] args)
+	{
+		Queue <String> q = new LinkedList <> ();
+		q.add("Orange");
+		q.add("Yellow");
+		q.add("Green");
+		q.add("Black");
+		q.add("Blue");
+ 
+		System.out.println(q);
+		String headt = q.peek();
+		System.out.println("Element at head: " + head);
+		System.out.println( q);
+	}
+}
+Output:
+[Orange, Yellow, Green, Black, Blue]
+Element at the head: Orange
+[Orange, Yellow, Green, Black, Blue]
