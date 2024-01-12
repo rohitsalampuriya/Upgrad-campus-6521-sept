@@ -1,1 +1,156 @@
+Q1.
+Write a code in Java where you have to return indices of two numbers such that they add up to the given target. Given an array integers nums and integer target. Each input has only one solution and no use of the same element again.
+Answer:
+import java.util.HashMap;
+public class Main {
+    public static int[] add(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int c = target - nums[i];
+            if (map.containsKey(c)) {
+                return new int[]{map.get(c), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
+   public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15, 18};
+        int target = 26;
+        int[] result = add(nums, target);
+        System.out.println("[" + result[0] + ", " + result[1] + "]");
+    }
+}
+Output:
+[2, 3]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Q2.
+Provide java code to find all the missing integers in the range [1, n] from an array nums, where each element nums[i] is guaranteed to be within the range [1, n]. The task is to return an array containing the integers in the specified range that are absent in the given array nums.
+Answer:
+import java.util.*;
+public class FindNumber{
+    public static List<Integer> findNumbers(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        for (int i = 1; i <= nums.length; i++) {
+            if (!set.contains(i)) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int[] nums = {4, 3, 2, 7, 8, 2, 1};
+        List<Integer> n = findNumbers(nums);
+        System.out.println(n);
+    }
+}
+
+Output:
+[5, 6]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q3.
+Find Duplicate email addresses using hash function in java.
+Answer:
+import java.util.*;
+
+public class FindDuplicateEmails {
+    public static List<String> findDuplicateEmails(String[] emails) {
+        Set<String> uniqueEmails = new HashSet<>();
+        List<String> duplicateEmails = new ArrayList<>();
+        for (String email : emails) {
+            String n = nEmail(email);
+            if (!uniqueEmails.add(n)) {
+                duplicateEmails.add(email);
+            }
+        }
+        return duplicateEmails;
+    }
+    private static String nEmail(String email) {
+        return email.toLowerCase();
+    }
+    public static void main(String[] args) {
+        String[] emails = {"user@example.com", "user@example.com", "anotherUser@example.com", "user@EXAMPLE.com"};
+        List<String> dEmails = findDuplicateEmails(emails);
+        if (!dEmails.isEmpty()) {
+            for (String duplicateEmail : dEmails) {
+                System.out.println(duplicateEmail);
+            }
+        } 
+    }
+}
+
+Output:
+user@example.com
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q4.
+Write a code in java to find the elements common between two arrays.
+Answer:
+import java.util.*;
+public class CommonElements {
+    public static List<Integer> findCommonElements(int[] nums1, int[] nums2) {
+        Set<Integer> set = new HashSet<>();
+        List<Integer> cElements = new ArrayList<>();
+        for (int num : nums1) {
+            set.add(num);
+        }
+        for (int num : nums2) {
+            if (set.contains(num)) {
+                cElements.add(num);
+            }
+        }
+        return cElements;
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1, 2, 1};
+        int[] nums2 = {2, 2, 3};
+        List<Integer> cElements = findCommonElements(nums1, nums2);
+        if (!cElements.isEmpty()) {
+            for (int element : cElements) {
+                System.out.println(element);
+            }
+        } else {
+            System.out.println("Not found.");
+        }
+    }
+}
+
+Output:
+2
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q5.
+Write a code in Java, find the first non-repeating character, and return its index using given string. If there is no non-repeating character, return -1.
+
+Answer:
+import java.util.*;
+public class FirstCharacter {
+    public static int firstChar(String s) {
+        Map<Character, Integer> charFrequency = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            charFrequency.put(c, charFrequency.getOrDefault(c, 0) + 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (charFrequency.get(s.charAt(i)) == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        String n = "leetcode";
+        System.out.println(n);
+        System.out.println(firstChar(n));
+    }
+}
+Output:
+leetcode
+0
+
+
+
+
 
