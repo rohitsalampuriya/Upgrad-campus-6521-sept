@@ -1,1 +1,347 @@
+Q1.
+Write a code in Java, A star graph is a graph with one center node and exactly n - 1 edges that connect the center node with every other node.where each edge [i] = [ui, vi] indicates an edge between the nodes ui and vi. Print the center of the given star graph.
+Answer:
+import java.util.*;
 
+public class Graph {
+
+    public static int graph(int[][] edges) {
+        Map<Integer, Integer> count = new HashMap<>();
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+
+            count.put(u, count.getOrDefault(u, 0) + 1);
+            count.put(v, count.getOrDefault(v, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
+            if (entry.getValue() == edges.length) {
+                return entry.getKey();
+            }
+        }
+        return -1; 
+    }
+
+    public static void main(String[] args) {
+        int[][] edges = {{1, 2}, {2, 3}, {4, 2}};
+        int result = graph(edges);
+        System.out.println(result);
+    }
+}
+
+Output: 
+2
+---------------------------------------------------------------------------------------------------------------------------------------------
+Q2.
+Write a code in java, Given two nodes start and end, find the path with the maximum probability of success to go from start to end and return its success probability.
+Answer:
+import java.util.*;
+
+public class MaxProbabilityPath {
+
+    public static double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+        Map<Integer, List<double[]>> graph = buildGraph(edges, succProb);
+
+        PriorityQueue<double[]> maxHeap = new PriorityQueue<>((a, b) -> Double.compare(b[1], a[1]));
+        maxHeap.offer(new double[]{start, 1.0});
+
+        Set<Integer> visited = new HashSet<>();
+
+        while (!maxHeap.isEmpty()) {
+            double[] current = maxHeap.poll();
+            int currentNode = (int) current[0];
+            double currentProb = current[1];
+
+            if (currentNode == end) {
+                return currentProb;
+            }
+
+            if (visited.contains(currentNode)) {
+                continue;
+            }
+
+            visited.add(currentNode);
+
+            List<double[]> neighbors = graph.getOrDefault(currentNode, new ArrayList<>());
+
+            for (double[] neighbor : neighbors) {
+                int nextNode = (int) neighbor[0];
+                double edgeProb = neighbor[1];
+                double newProb = currentProb * edgeProb;
+
+                if (!visited.contains(nextNode)) {
+                    maxHeap.offer(new double[]{nextNode, newProb});
+                }
+            }
+        }
+
+        return 0.0; 
+    }
+
+    private static Map<Integer, List<double[]>> buildGraph(int[][] edges, double[] succProb) {
+        Map<Integer, List<double[]>> graph = new HashMap<>();
+
+        for (int i = 0; i < edges.length; i++) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            double prob = succProb[i];
+
+            graph.computeIfAbsent(u, k -> new ArrayList<>()).add(new double[]{v, prob});
+            graph.computeIfAbsent(v, k -> new ArrayList<>()).add(new double[]{u, prob});
+        }
+
+        return graph;
+    }
+
+    public static void main(String[] args) {
+        int n = 3;
+        int[][] edges = {{0, 1}, {1, 2}, {0, 2}};
+        double[] succProb = {0.5, 0.5, 0.2};
+        int start = 0;
+        int end = 2;
+
+        double result = maxProbability(n, edges, succProb, start, end);
+        System.out.println(result);
+    }
+}
+
+Output:
+0.25
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q3.
+Write a code in java,the n binary tree nodes numbered from 0 to n - 1 where node i has two child left[i] and right[i], return true if and only if all the given nodes form exactly one valid binary tree.
+Answer:
+import java.util.*;
+
+public class ValidNodes {
+
+    public static boolean validateNodes(int n, int[] left, int[] right) {
+        int[] inDegree = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            if (left[i] != -1) {
+                inDegree[left[i]]++;
+            }
+
+            if (right[i] != -1) {
+                inDegree[right[i]]++;
+            }
+        }
+
+        int root = -1;
+        for (int i = 0; i < n; i++) {
+            if (inDegree[i] == 0) {
+                if (root == -1) {
+                    root = i;
+                } else {
+                    return false; 
+                }
+            }
+        }
+
+        if (root == -1) {
+            return false; 
+        }
+        Set<Integer> visited = new HashSet<>();
+        return dFS(root, left, right, visited) && visited.size() == n;
+    }
+
+    private static boolean dFS(int node, int[] left, int[] right, Set<Integer> visited) {
+        if (node == -1) {
+            return true;
+        }
+        if (visited.contains(node)) {
+            return false;
+        }
+        visited.add(node);
+        return dFS(left[node], left, right, visited) && dFS(right[node], left, right, visited);
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        int[] left = {1, -1, 3, -1};
+        int[] right = {2, -1, -1, -1};
+
+        boolean result = validateNodes(n, left, right);
+        System.out.println(result);
+    }
+}
+Output:
+true
+-------------------------------------------------------------------------------------------------------------------
+Q4.
+Write a code in java, Given a directed graph, check if it is  connected perfectly or not. A directed graph is said to be perfectly connected if every vertex is reachable from every other vertex.
+Answer:
+import java.util.*;
+
+class Edge
+{
+    int data, dest;
+    public Edge(int data, int dest)
+    {
+        this.data = data;
+        this.dest = dest;
+    }
+}
+
+class Graph
+{
+    List<List<Integer>> adjList = null;
+
+    Graph(List<Edge> edges, int n)
+    {
+        adjList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        for (Edge edge: edges)
+        {
+            int src = edge.data;
+            int dest = edge.dest;
+ 
+            adjList.get(src).add(dest);
+        }
+    }
+}
+ 
+class Main
+{
+    private static void dFS(Graph graph, int v, boolean[] visited)
+    {
+
+        visited[v] = true;
+        for (int u: graph.adjList.get(v))
+        {
+            if (!visited[u]) {
+                dFS(graph, u, visited);
+            }
+        }
+    }
+    public static boolean isConnected(Graph graph, int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            boolean[] visited = new boolean[n];
+            dFS(graph, i, visited);
+            for (boolean b: visited)
+            {
+                if (!b) {
+                    return false;
+                }
+            }
+        }
+ 
+        return true;
+    }
+ 
+    public static void main(String[] args)
+    {
+        List<Edge> edges = Arrays.asList(
+                new Edge(0, 4), new Edge(1, 0), new Edge(1, 2), new Edge(2, 1),
+                new Edge(2, 4), new Edge(3, 1), new Edge(3, 2), new Edge(4, 3)
+        );
+ 
+        int n = 5;
+        Graph graph = new Graph(edges, n);
+        if (isConnected(graph, n)) {
+            System.out.println("The graph is perfectly connected");
+        }
+        else {
+            System.out.println("The graph is not perfectly connected");
+        }
+    }
+}
+Output:
+The graph is perfectly connected
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q5.
+Write a code in java, A root vertex of a directed graph is a vertex u with a directed path from u to v for every pair of vertices (u, v) in the graph. In other words, all other vertices in the graph can be reached from the root vertex.A graph can have multiple root vertices. For example, each vertex in a strongly connected component is a root vertex. In such cases, the solution should return anyone of them. If the graph has no root vertices, the solution should return -1.
+Answer:
+import java.util.*;
+
+class Edge
+{
+    int data, dest;
+ 
+    public Edge(int data, int dest)
+    {
+        this.data = data;
+        this.dest = dest;
+    }
+}
+ 
+class Graph
+{
+    List<List<Integer>> adjList;
+
+    Graph(List<Edge> edges, int n)
+    {
+        adjList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adjList.add(new ArrayList<>());
+        }
+ 
+        for (Edge edge: edges) {
+            adjList.get(edge.data).add(edge.dest);
+        }
+    }
+}
+ 
+class Main
+{
+    public static void DFS(Graph graph, int v, boolean[] discovered)
+    {
+        discovered[v] = true;
+        for (int u: graph.adjList.get(v))
+        {
+            if (!discovered[u]) {
+                DFS(graph, u, discovered);
+            }
+        }
+    }
+    public static int findRootVertex(Graph graph, int n)
+    {
+        boolean[] visited = new boolean[n];
+        int v = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (!visited[i])
+            {
+                DFS(graph, i, visited);
+                v = i;
+            }
+        }
+        Arrays.fill(visited, false);
+
+        DFS(graph, v, visited);
+        for (int i = 0; i < n; i++)
+        {
+            if (!visited[i]) {
+                return -1;
+            }
+        }
+        return v;
+    }
+ 
+    public static void main(String[] args)
+    {
+        List<Edge> edges = Arrays.asList(new Edge(0, 1), new Edge(1, 2),
+                    new Edge(2, 3), new Edge(3, 0), new Edge(4, 3),
+                    new Edge(4, 5), new Edge(5, 0));
+        int n = 6;
+        Graph graph = new Graph(edges, n);
+        int root = findRootVertex(graph, n);
+ 
+        if (root != -1) {
+            System.out.println(root);
+        }
+        else {
+            System.out.println("The root vertex does not exist");
+        }
+    }
+}
+Output:
+4
