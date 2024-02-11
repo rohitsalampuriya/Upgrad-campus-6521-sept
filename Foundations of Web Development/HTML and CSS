@@ -1,1 +1,135 @@
+Q1.
+Write a code for basic HTML webpage with a heading, a paragraph, and an image image size should be 100px for both width and height.
 
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Webpage</title>
+  </head>
+  <body>
+    <h1>Welcome to the WebPage</h1>
+    <p>This is a paragraph part</p>
+    <img src="imageroh.jpg" alt="ManImage">
+  </body>
+</html>
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Q2.
+Wirte a HTML code with simple form with two input fields and a submit button.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <form>
+      <label for="email">Username:</label>
+      <input type="email" id="email">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------------------------
+Q3.
+Create a HTML webpage with a table have three columns and three rows.Also style the table using css.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Table</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+     
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+      <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+        <td>Row 1, Column 3</td>
+      </tr>
+      <tr>
+        <td>Row 2, Column 1</td>
+        <td>Row 2, Column 2</td>
+        <td>Row 2, Column 3</td>
+      </tr>
+      <tr>
+        <td>Row 3, Column 1</td>
+        <td>Row 3, Column 2</td>
+        <td>Row 3, Column 3</td>
+      </tr>
+    </table>
+  </body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------------------------
+Q4.
+Add a dropdown menu with three options in HTML webpage.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Dropdown Menu</title>
+  </head>
+  <body>
+    <label for="dropdown">Choose an option:</label>
+    <select id="dropdown" name="dropdown">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+  </body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------------------------
+Q5.
+Write a code for a hyperlink that opens a new tab when clicked.and define the size of content inside the anchor tag by css.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Hyperlink</title>
+    <style>
+     a{
+       font-size:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.google.com" target="_blank">Google</a>
+  </body>
+</html>
+-------------------------------------------------------------------------------------------------------------------------------------------
