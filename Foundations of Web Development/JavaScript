@@ -1,1 +1,94 @@
+Q1.Write a JavaScript function to check if a given string is a palindrome.
 
+Answer:
+function isPalindrome(str) { 
+
+  return str === str.split(”).reverse().join(”); 
+
+}
+const string1 = "malayalam";
+const string2 = "hello";
+
+console.log(isPalindrome(string1)); 
+console.log(isPalindrome(string2)); 
+
+Output:
+true
+false
+==============================================================================================================
+Q2.Write a JavaScript program to reverse a given string. 
+
+Answer:
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+
+const exampleString = "Hello, World!";
+
+const reversedString = reverseString(exampleString);
+console.log(reversedString);
+
+Output:
+!dlroW ,olleH
+====================================================================================================================
+Q3.Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers. 
+
+Answer:
+function filterEvenNumbers(numbers) {
+    return numbers.filter(number => number % 2 === 0);
+}
+
+
+const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbersArray = filterEvenNumbers(numbersArray);
+
+console.log(evenNumbersArray);
+
+Output:
+[2, 4, 6, 8, 10]
+
+=============================================================================================================================
+Q4.Write a JavaScript function to check if a given number is prime. 
+
+Answer:
+function isPrime(number) {
+    if (number <= 1) {
+        return false; 
+    }
+
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            return false; 
+        }
+    }
+
+    return true; 
+}
+
+
+const exampleNumber1 = 7;
+const exampleNumber2 = 14;
+
+console.log(isPrime(exampleNumber1)); 
+console.log(isPrime(exampleNumber2)); 
+
+Output:
+true
+false
+===============================================================================================================
+Q5.Write a JavaScript program to convert a string to title case (capitalize the first letter of each word). 
+
+Answer:
+function toTitleCase(str) {
+    return str.replace(/\b\w/g, function (match) {
+        return match.toUpperCase();
+    });
+}
+const exampleString = "hello world";
+
+const titleCaseString = toTitleCase(exampleString);
+console.log(titleCaseString);
+
+Output:
+Hello World
