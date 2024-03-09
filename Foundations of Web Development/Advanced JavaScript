@@ -1,0 +1,97 @@
+Q1. Write one Javascript code on Pass by value.
+
+Answer:
+let a=5;
+let b=a;
+
+b++;
+console.log(b);
+console.log(a);
+
+Output:
+6
+5
+=======================================================================================================================================
+Q2. Write one Javascript code on Pass by reference.
+
+Answer:
+let obj1={
+  a: 'a',
+  b: 'b',
+  c: 'c'
+};
+
+let obj2={...obj1};
+obj2.b='d';
+
+console.log(obj2);
+console.log(obj1);
+
+Output:
+{ a: 'a', b: 'd', c: 'c' }
+{ a: 'a', b: 'b', c: 'c' }
+==============================================================================================================================================
+Q3. Write a function fetchData that simulates fetching data asynchronously. It takes a callback function as a parameter and should call the callback with the fetched data after a delay.
+
+Answer:
+function fetchData(callback) {
+    setTimeout(function () {
+        const data = { name: 'John', age: 30 };
+        callback(data);
+    }, 2000);
+}
+
+
+fetchData(function (data) {
+    console.log(data); 
+});
+Output:  
+{ name: 'John', age: 30 }
+================================================================================================================================
+Q4.Write a function that returns a Promise. The promise should resolve with the message "Promise resolved!" after a delay of 2 seconds. If an error occurs, it should reject with the message "Promise rejected!".
+
+Answer:
+const delayedPromise = () => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Promise resolved!");
+        // reject("Promise rejected!");
+    }, 2000);
+});
+
+delayedPromise()
+    .then(message => console.log(message));
+    .catch(error => console.error(error)); 
+
+Output:
+Promise resolved!
+==============================================================================================================================
+Q5.Write an async function that simulates fetching data from an API. The function should use await to fetch data and return a message with the fetched data.
+
+Answer:
+async function fetchDataFromAPI() {
+    function mockAPICall() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("Mock data from API");
+            }, 2000);
+        });
+    }
+
+    try {
+   
+        const data = await mockAPICall();
+        return `Data fetched successfully: ${data}`;
+    } catch (error) {
+        return `Error fetching data: ${error.message}`;
+    }
+}
+
+async function main() {
+    const result = await fetchDataFromAPI();
+    console.log(result);
+}
+
+main();
+
+Output:
+Data fetched successfully: Mock data from API
